@@ -49,32 +49,27 @@
         <meta name="text:Custom Link 3 Title" content="Custom Link 3">
         <meta name="text:Custom Link 3 URL" content="">
         
-          <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Inconsolata|Playfair+Display:900" rel="stylesheet">
           
-            <link href="https://fonts.googleapis.com/css?family=Inconsolata|Playfair+Display:900" rel="stylesheet">
-          
-    <script type="text/javascript" src="https://kit.fontawesome.com/b312a140ee.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://kit.fontawesome.com/b312a140ee.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                var a = 3;
+                $( ".draggable" ).draggable({
+                    start: function(event, ui) { $(this).css("z-index", a++); }
+                });
+                $('.container').mousedown(function() {
+                    $(this).addClass('top').removeClass('bottom');
+                    $(this).siblings().removeClass('top').addClass('bottom');
+                    $(this).css("z-index", a++);
+                });
+            });
+        </script>
 
-
-  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-  
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
-  
-            <script>
-  $(document).ready(function() {
-    var a = 3;
-    $( ".draggable" ).draggable({
-   start: function(event, ui) { $(this).css("z-index", a++); }
-});
-    $('.container').mousedown(function() {
-        $(this).addClass('top').removeClass('bottom');
-        $(this).siblings().removeClass('top').addClass('bottom');
-        $(this).css("z-index", a++);
-
-    });
-});
-</script>
-            <!-- Cursor -->
+        <!-- Cursor -->
         <style type="text/css">* {
             cursor: url(https://cur.cursors-4u.net/nature/nat-10/nat996.cur), auto !important;
             }</style>
@@ -82,6 +77,7 @@
         <img src="https://cur.cursors-4u.net/cursor.png" border="0" alt="Tiny Star" style="position:absolute; top: 0px; right: 0px;" />
         </a>
         <!-- End Cursor -->
+        
         <style type="text/css">
             html, body{
                 margin:0;
