@@ -3,13 +3,18 @@
 
 <!-- 
 | ---                                                       
-| Theme by JAZZatkin
+| Theme by JAZZatkin [Modified by DaX]
 | ---
 | https://jazzatkin.com
 | @JAZZatkin
 | ---
 -->
     <head>
+    
+        <!-- Pop-up Box Shows Once Upon Entry -->
+        <!-- Nothing is here yet!-->
+        <!-- End Pop-up Box -->
+
         <title>{Title}</title>
         <link rel="shortcut icon" href="{Favicon}">
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
@@ -18,11 +23,16 @@
         {block:Description}
         <meta name="description" content="{MetaDescription}" />
         {/block:Description}
-        <meta name="image:Background" content="https://www.teahub.io/photos/full/193-1933274_pastel-cute-wallpaper-for-laptop.jpg"/>
+        <meta name="image:Background" content="https://i.pinimg.com/originals/fd/f6/ab/fdf6abae016384409b8d6be8e1fab844.jpg"/>
         <meta name="color:Primary" content="#f0d6db"/>
-        <meta name="color:Secondary" content="#20e2fc"/> //#fc2a20
+        <meta name="color:Secondary" content="#fc2a20"/>
         <meta name="color:Tertiary" content="#f0d6db"/>
-        <meta name="color:Post" content="#f7e9bf"/>
+        <meta name="color:Quaternary" content="#dbb2f1"/>
+        <meta name="color:Icons" content="#f0d6db"/>
+        <meta name="color:Text" content="#f0d6db"/>
+        <meta name="color:Hover" content="#f0d6db"/>
+        <meta name="color:Post" content="#000000"/>
+        <meta name="color:TEST" content="#ff0000"/>
         <meta name="image:Post" content="https://cutewallpaper.org/22x/0nkygmvec/1241611949.jpg"/>
         <meta name="if:Infinite Scroll" content="1">
         <meta name="if:Tags on Homepage" content="1" />
@@ -42,7 +52,8 @@
           <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet">
           
             <link href="https://fonts.googleapis.com/css?family=Inconsolata|Playfair+Display:900" rel="stylesheet">
-          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+          
+    <script type="text/javascript" src="https://kit.fontawesome.com/b312a140ee.js" crossorigin="anonymous"></script>
 
 
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -63,14 +74,21 @@
     });
 });
 </script>
-
+            <!-- Cursor -->
+        <style type="text/css">* {
+            cursor: url(https://cur.cursors-4u.net/nature/nat-10/nat996.cur), auto !important;
+            }</style>
+        <a href="https://www.cursors-4u.com/cursor/2011/12/29/tiny-star.html" target="_blank" title="Tiny Star">
+        <img src="https://cur.cursors-4u.net/cursor.png" border="0" alt="Tiny Star" style="position:absolute; top: 0px; right: 0px;" />
+        </a>
+        <!-- End Cursor -->
         <style type="text/css">
             html, body{
                 margin:0;
                 padding:0;
                 background-color: {color:Primary};
                 background-image: url({image:Background});
-                background-repeat: no-repeat;
+                background-repeat: repeat;
                 background-attachment: fixed;
                 background-position: 100% 100%
                 
@@ -81,7 +99,7 @@
                 text-shadow: rgba(0,0,0,.01) 0 0 1px;
                 font-family: 'Inconsolata', sans-serif;
                 }
-            /* Navigation */
+            /* Navigation at Bottom */
             nav#nav{
                 position: fixed;
                 bottom: 0;
@@ -107,6 +125,7 @@
                 margin: 0;
                 height: 30px;
                 }
+            /* Text & Borders */
             nav#nav ul li a{
                 font-size: 12px;
                 line-height: 24px;
@@ -121,7 +140,7 @@
                 }
             nav#nav ul li a:hover, nav#nav ul li a.selected{
                 background-color: {color:Secondary};
-                color: {color:Primary};
+                color: {color:Tertiary};
                 }
                 
             /* Post Structure */
@@ -226,6 +245,7 @@
                 overflow: hidden;
                 }
             {/block:PermalinkPage}
+            /* Regular Post Date */
             .date{
                 flex-grow: 1;
                 font-size: 12px;
@@ -234,16 +254,19 @@
                 color: {color:Secondary};
                 border: 0;
                 }
+            /* Controls Title */
             .date a{
+                font-size: 40px;
                 color: {color:Secondary};
-                text-decoration: none;
-                padding: 0;
-                border: 0;
+                text-decoration: underline overline;
+                padding: 5;
+                border: 5;
                 }
             .date a:hover{
                 background-color: {color:Secondary};
-                color: {color:Primary};
+                color: {color:Tertiary};
                 }
+            /* Upper Right Hand Controls */
             .postControls .fullControl, .postControls .closeControl{
                 width: 20px;
                 height: 20px;
@@ -346,7 +369,7 @@
                 }
             .postContent a:hover{
                 background-color: {color:Secondary};
-                color: {color:Primary};
+                color: {color:Tertiary};
                 }
             .tagContainer, .meta{
                 width: 100%;
@@ -362,17 +385,34 @@
                 padding: 0;
                 margin: 0;
                 }
+            /* Nixed this guy */
             ul.tags li{
-                display: inline-block;
+                display: inline-grid;
                 margin-right: 5px;
                 }
-            ul.tags li a, .perma a, .notecount a{
+            /* Use instead */
+            ul.tags a, .perma a {
+                display: inline-grid;
                 background-color: {color:Secondary};
                 color: {color:Tertiary};
-                text-transform: uppercase;
+                text-transform: full-width;
+                }
+            ul.tags a:hover, .perma a:hover {
+                text-decoration-line: underline overline;
+                background-color: {color:Tertiary};
+                color: {color:Secondary};
+                }
+            /* Find Again */
+            ul.tags li a, .perma a, .notecount a{
+                display: inline-grid;
+                background-color: {color:Secondary};
+                color: {color:Tertiary};
+                text-transform: full-width;
                 }
             ul.tags li a:hover, .perma a:hover, .notecount a:hover{
+                text-decoration-line: underline overline;
                 background-color: {color:Tertiary};
+                color: {color:Secondary};
                 }
             .desktopLinks{
                 position: fixed;
@@ -602,7 +642,9 @@
                     color: {color:Primary};
                     }
                 ol.notes li.note img.avatar {
-                    display: none;
+                    margin-right: 10px;
+                    width: 16px;
+                    height: 16px;
                     }
                 ol.notes li.note span.action {
                     font-weight: normal;
@@ -611,7 +653,7 @@
                     font-weight: normal;
                     }
                 ol.notes li.note blockquote a {
-                    text-decoration: none;
+                    text-decoration: blink;
                     }
             
             .note.more_notes_link_container{
@@ -704,12 +746,12 @@
     <body>
      <div class="wrapper">
         <div id="loading">
-       <i class="fas fa-cog fa-spin"></i>
-       <p>LOADING</p>
+       <i class="fa-solid fa-cookie-bite fa-spin"></i>
+       <p>( ⸝⸝•ᴗ•⸝⸝ )੭⁾⁾</p>
         </div>
         <nav id="nav">
             <ul>
-                <li><a class="navLink" href="{BlogURL}">START</a></li>
+                <li><a class="navLink" href="{BlogURL}">HOME</a></li>
                 {block:IfAskLink}<li><a class="navLink ask" href="/ask">Ask</a></li>{/block:IfAskLink}
                 {block:IfArchiveLink}<li><a class="navLink archive" href="/archive">Archive</a></li>{/block:IfArchiveLink}
                 {block:IfCustomLink1URL}<li><a href="{text:Custom Link 1 URL}"}>{text:Custom Link 1 Title}</a></li>{/block:IfCustomLink1URL}
@@ -720,10 +762,10 @@
         </nav>
         
         <div class="desktopLinks">
-            <a class="desktopLink" href="{BlogURL}"><i class="fas fa-desktop"></i><p class="desktopTitle">{Title}</p>
+            <a class="desktopLink" href="{BlogURL}"><i class="fas fa-face-grin-hearts"></i><p class="desktopTitle">{Title}</p>
             </a>
-            <a class="desktopLink" href="https://www.tumblr.com/theme/40954" target="_blank"><i class="fas fa-palette"></i>
-                <p class="desktopTitle">Theme by JAZZatkin</p>
+            <a class="desktopLink" href="https://www.tumblr.com/theme/40954" target="_blank"><i class="fa-solid fa-code"></i>
+                <p class="desktopTitle">Theme by JAZZatkin [Modified by DaX]</p>
             </a>
             {block:IfInstagramHandle}
             <a class="desktopLink" href="https://instagram.com/{text:Instagram Handle}" target="_blank"><i class="fab fa-instagram"></i>
@@ -771,7 +813,7 @@
                 <li class="post main {block:IndexPage}draggable{/block:IndexPage} {block:PermalinkPage}full{/block:PermalinkPage}">                                
                     <div class="postControls">
                         <div class="date">
-                        {ShortDayOfWeek} {ShortMonth} {DayOfMonth}{DayOfMonthSuffix}
+                        {DayOfWeek}, {ShortMonth} {DayOfMonth}{DayOfMonthSuffix} @ {12Hour}:{Minutes}{CapitalAmPm} ヾ(๑ˊᵕˋ๑)◞♡
                         </div>
                         {block:IndexPage}
                         <a class="fullControl" href="{Permalink}"><i class="fas fa-arrows-alt"></i></a>
@@ -781,7 +823,7 @@
                     </div>
                     
                     <div class="postInner">
-                    <div class="loaderTwo"><i class="fas fa-cog fa-spin"></i></div>
+                    <div class="loaderTwo"><i class="fa-solid fa-cookie-bite fa-spin"></i></div>
                     <div class="postInnerTwo">
                     {block:Text}
                     <div class="text">
@@ -924,12 +966,9 @@
                     {block:HasTags} 
                         {block:IfTagsOnHomepage}
                         <div class="tagContainer">
-                        <ul class="tags">
-                       
+                            <ul class="tags">
                                 {block:Tags}
-                                    <li>
-                                        <a href="{TagURL}">#{Tag}</a>
-                                    </li>
+                                    <a href="{TagURL}">{Tag}</a> ♥ 
                                 {/block:Tags}
                             </ul>
                         </div>
@@ -976,11 +1015,11 @@
         {block:Pagination}
         <div class="pagination {block:IfInfiniteScroll}infinite{/block:IfInfiniteScroll}">
             {block:PreviousPage}
-            <a class="desktopLink" href="{PreviousPage}" id="prev"><i class="far fa-trash-alt"></i><p class="desktopTitle">Prev Posts</p></a>
+            <a class="desktopLink" href="{PreviousPage}" id="prev"><i class="fa-regular fa-square-caret-left"></i><p class="desktopTitle">Prev Posts</p></a>
             {/block:PreviousPage} 
             
             {block:NextPage}
-            <a class="desktopLink" href="{NextPage}" id="next"><i class="fas fa-recycle"></i><p class="desktopTitle">Next Posts</p></a>
+            <a class="desktopLink" href="{NextPage}" id="next"><i class="fa-regular fa-square-caret-right"></i><p class="desktopTitle">Next Posts</p></a>
             {/block:NextPage}
        
         </div>        
@@ -1016,7 +1055,7 @@
 				// finished message
 				loading: {
 		    		speed: 0,
-					msgText: 'LOADING',
+					msgText: '( ⸝⸝•ᴗ•⸝⸝ )੭⁾⁾',
 					finishedMsg: '',
 					}
 				},
