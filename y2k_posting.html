@@ -869,7 +869,7 @@
             </li>
             {/block:IndexPage} -->
             {block:Posts}
-                <li class="post main {block:IndexPage}draggable{/block:IndexPage} {block:PermalinkPage}full{/block:PermalinkPage}">                                
+                <li class="post main {block:IndexPage}draggable{/block:IndexPage} {block:PermalinkPage}full{/block:PermalinkPage}">         
                     <div class="postControls">
                         <div class="date">
                             {DayOfWeek}, {ShortMonth} {DayOfMonth}{DayOfMonthSuffix} @ {12Hour}:{Minutes}{CapitalAmPm} ヾ(๑ˊᵕˋ๑)◞♡
@@ -910,119 +910,149 @@
                     
                     {block:Photo}
                     <div class="photo">
-                        {block:IndexPage}<a href="{Permalink}">{/block:IndexPage}{block:PermalinkPage}{LinkOpenTag}{/block:PermalinkPage}<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" width="100%"/> {block:IndexPage}</a>{/block:IndexPage}{block:PermalinkPage}{LinkCloseTag}{/block:PermalinkPage}
+                        {block:IndexPage}
+                            <a href="{Permalink}">
+                        {/block:IndexPage}
+                        {block:PermalinkPage}
+                            {LinkOpenTag}
+                        {/block:PermalinkPage}
+                        <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" width="100%"/> 
+                        {block:IndexPage}
+                            </a>
+                        {/block:IndexPage}
+                        {block:PermalinkPage}
+                            {LinkCloseTag}
+                        {/block:PermalinkPage}
                     </div> 
                     {/block:Photo}
                 
                      {block:Panorama}
                         <div class="panorama">
-                    
                             {LinkOpenTag}
                                 <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
                             {LinkCloseTag}
-                     </div> 
+                        </div> 
                     {/block:Panorama}
                 
                     {block:Photoset}
-                    <div class="photosetContainer">
-                      {block:Photos}
-                          {block:IndexPage}<a href="{Permalink}">{/block:IndexPage}{block:PermalinkPage}{LinkOpenTag}{/block:PermalinkPage}<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" width="100%"/>{block:IndexPage}</a>{/block:IndexPage}{block:PermalinkPage}{LinkCloseTag}{/block:PermalinkPage}
-                      {/block:Photos}
-                    </div>
+                        <div class="photosetContainer">
+                            {block:Photos}
+                                {block:IndexPage}
+                                    <a href="{Permalink}">
+                                {/block:IndexPage}
+                                {block:PermalinkPage}
+                                    {LinkOpenTag}
+                                {/block:PermalinkPage}
+                                <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" width="100%"/>
+                                {block:IndexPage}
+                                    </a>
+                                {/block:IndexPage}
+                                {block:PermalinkPage}
+                                    {LinkCloseTag}
+                                {/block:PermalinkPage}
+                          {/block:Photos}
+                        </div>
                     {/block:Photoset}
                 
                     {block:Link}
-                    <div class="link">
-                        {block:Thumbnail}
-                            {block:IndexPage}<a href="{Permalink}">{/block:IndexPage}{block:PermalinkPage}<a href="{URL}" class="link" {Target}>{/block:PermalinkPage}<img class="linkThumb" src="{Thumbnail-HighRes}" alt="{PhotoAlt}"></a>
-                        {/block:Thumbnail}
-                        
-                        {block:Host}
-                            <a class="linkHost" href="https://{host}">{Host}</a>
-                        {/block:Host}
-                        <a class="linkTitle" href="{URL}" class="link" {Target}>{Name}</a>
-                    </div>  
+                        <div class="link">
+                            {block:Thumbnail}
+                                {block:IndexPage}
+                                    <a href="{Permalink}">
+                                {/block:IndexPage}
+                                {block:PermalinkPage}
+                                    <a href="{URL}" class="link" {Target}>
+                                {/block:PermalinkPage}
+                                <img class="linkThumb" src="{Thumbnail-HighRes}" alt="{PhotoAlt}">
+                                    </a>
+                            {/block:Thumbnail}
+                            
+                            {block:Host}
+                                <a class="linkHost" href="https://{host}">{Host}</a>
+                            {/block:Host}
+                            <a class="linkTitle" href="{URL}" class="link" {Target}>{Name}</a>
+                        </div>  
                 
                 {block:PermalinkPage}
                     {block:Description}
-                    <div class="postContent">
-                     {Description}
-                    </div>
+                        <div class="postContent">
+                        {Description}
+                        </div>
                     {/block:Description}
                 {/block:PermalinkPage}
                 
                 {block:IndexPage}
                     {block:Description}
-                    <div class="postContent">
-                    {Description}
+                        <div class="postContent">
+                            {Description}
                         </div>
-                        {/block:Description}
+                    {/block:Description}
                 {/block:IndexPage}
                 
-                {/block:Link}
+            {/block:Link}
                  
-                {block:Chat}
-                <div class="chat">
-                    {block:Title}
-                        <h3>{Title}</h3>
-                    {/block:Title}
-                    <ul id="chat">
-                        {block:Lines}
-                            <li class="{Alt} user_{UserNumber}">
-                                {block:Label}
-                                <span class="label">{Label}</span>
-                                {/block:Label}{Line}
-                            </li>
-                        {/block:Lines}
-                    </ul>
-                </div>
-                {/block:Chat}
+            {block:Chat}
+            <div class="chat">
+                {block:Title}
+                    <h3>{Title}</h3>
+                {/block:Title}
+                <ul id="chat">
+                    {block:Lines}
+                        <li class="{Alt} user_{UserNumber}">
+                            {block:Label}
+                            <span class="label">{Label}</span>
+                            {/block:Label}{Line}
+                        </li>
+                    {/block:Lines}
+                </ul>
+            </div>
+            {/block:Chat}
                 
-                {block:Audio} 
-                <div class="audio">
-                    {block:AudioEmbed} 
-                        {AudioEmbed}
-                    {/block:AudioEmbed}
-                </div>  
-                {/block:Audio}
+            {block:Audio} 
+            <div class="audio">
+                {block:AudioEmbed} 
+                    {AudioEmbed}
+                {/block:AudioEmbed}
+            </div>  
+            {/block:Audio}
                 
-                {block:Answer}
-                <div class="question">
-                    <div class="questionContainer"> 
-                        <span class="askerContainer">{Asker} ASKED:</span> {Question}
-                    </div>
-                    {block:Answerer}
-                    <div class="answerContainer">
-                        <span class="answererContainer">{Answerer} ANSWERED:</span > {Answer}
-                    </div>
-                    {/block:Answerer}
-                    <div class="replies">{Replies}</div> 
+            {block:Answer}
+            <div class="question">
+                <div class="questionContainer"> 
+                    <span class="askerContainer">{Asker} ASKED:</span> {Question}
                 </div>
-                {/block:Answer}
+                {block:Answerer}
+                <div class="answerContainer">
+                    <span class="answererContainer">{Answerer} ANSWERED:</span > {Answer}
+                </div>
+                {/block:Answerer}
+                <div class="replies">{Replies}</div> 
+            </div>
+            {/block:Answer}
                 
-                {block:Video}
-                <div class="video clearfix">
-                    <div class="videoWrapper">
-                    {VideoEmbed-700}
-                    </div>
+            {block:Video}
+            <div class="video clearfix">
+                <div class="videoWrapper">
+                {VideoEmbed-700}
                 </div>
-                {/block:Video}
-                 
-                {block:Quote}
-                <div class="quote">
+            </div>
+            {/block:Video}
+             
+            {block:Quote}
+            <div class="quote">
+                <div class="postContent">
+                    "{Quote}" {block:Source}— {Source}{/block:Source}
+                </div>
+            </div>  
+            {/block:Quote}
+                
+            {block:PermalinkPage}
+                {block:Caption}
                     <div class="postContent">
-                        "{Quote}" {block:Source}— {Source}{/block:Source}
+                        {Caption}
                     </div>
-                </div>  
-                {/block:Quote}
-                
-                {block:PermalinkPage}
-                    {block:Caption}
-                    <div class="postContent">
-                    {Caption}
-                    </div>
-                    {/block:Caption}
-                {/block:PermalinkPage}
+                {/block:Caption}
+            {/block:PermalinkPage}
                 </div>
                 </div>
                 {block:IndexPage}
