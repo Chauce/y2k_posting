@@ -1,14 +1,9 @@
 <!DOCTYPE html>
-<html>
-
-<!-- 
-| ---                                                       
-| Theme by JAZZatkin [Modified by DaX]
-| ---
-| https://jazzatkin.com
-| @JAZZatkin
-| ---
+<!-- Original Theme by JAZZatkin --  Modified by DaX
+|          https://jazzatkin.com | @JAZZatkin
 -->
+<html>
+    <!-- HEAD -->
     <head>
     
         <!-- Pop-up Box Shows Once Upon Entry -->
@@ -788,12 +783,15 @@
             }
         </style> 
     </head> 
+    
+    <!-- BODY -->
     <body>
         <div class="wrapper">
             <div id="loading">
                 <i class="fa-solid fa-cookie-bite fa-spin"></i>
                 <p>( ⸝⸝•ᴗ•⸝⸝ )੭⁾⁾</p>
             </div>
+            
             <nav id="nav">
                 <ul>
                     <li><a class="navLink" href="{BlogURL}">HOME</a></li>
@@ -806,38 +804,73 @@
                 </ul>
             </nav>
         </div>
+        <!-- End Wrapper -->
+
         <div id="sidebar">
             <div class="blogtitle">
                 <a href="/">
                     {Title}
                 </a>
             </div>
+            
             <div class="portrait">
                 <img src="{PortraitURL-128}" width="60" height="60">
             </div>
+            
             <div class="about">{Description}</div>
         </div>
+        <!-- End Sidebar -->
+
         <div class="desktopLinks">
+            <!-- Originally included an icon that links back to blog home --
+            This seems like overkill, as we already have two other things that do this:
+                [1] Blog Title in Sidebar
+                [2] The [X] at the top of posts
+            Adding a THIRD thing just feels cluttered and confusing. We don't need to add to the overall visual noise on the page.
+        
+            THOUGHTS: We shouldn't even be displaying the [X] unless we've clicked onto an individual post. [X] reads as "close" or "return back to main page" and that reads confusingly when EVERY reblogged post on the main scrolling page contains an [X].
+            It looks like it ought to remove individual posts from the scrolling page.
+            WE MIGHT WANT TO:
+                * Change the buttons on each post on main page to be -
+                    [<3] Like the post
+                    [<>] Reblog the post
+                    [<=>] Click to individual post to see notes
+                * Change post in "notes" view to have buttons:
+                    [<3] Like the post
+                    [<>] Reblog the post
+                    [X] Close post and return to blog home
+                * Add icon that returns you to YOUR dashboard??
+                    [!] Tumblr does seem to provide this natively in the upper right
+            -->
             <!--<a class="desktopLink" href="{BlogURL}"><i class="fas fa-face-grin-hearts"></i><p class="desktopTitle">{Title}</p>
             </a> -->
-            <a class="desktopLink" href="https://www.tumblr.com/theme/40954" target="_blank"><i class="fa-solid fa-code"></i>
+
+            <a class="desktopLink" href="https://www.tumblr.com/theme/40954" target="_blank">
+                <i class="fa-solid fa-code"></i>
                 <p class="desktopTitle">Theme Modified by DaX</p>
             </a>
+            <!-- Optional Desktop Links -->
             {block:IfInstagramHandle}
-                <a class="desktopLink" href="https://instagram.com/{text:Instagram Handle}" target="_blank"><i class="fab fa-instagram"></i>
+                <a class="desktopLink" href="https://instagram.com/{text:Instagram Handle}" target="_blank">
+                    <i class="fab fa-instagram"></i>
                     <p class="desktopTitle">@{text:Instagram Handle}</p>
                 </a>
             {/block:IfInstagramHandle}
+            
             {block:IfTwitterHandle}
-                <a class="desktopLink" href="https://twitter.com/{text:Twitter Handle}" target="_blank"><i class="fab fa-twitter"></i>
+                <a class="desktopLink" href="https://twitter.com/{text:Twitter Handle}" target="_blank">
+                    <i class="fab fa-twitter"></i>
                     <p class="desktopTitle">@{text:Twitter Handle}</p>
                 </a>
             {block:IfTwitterHandle}
+            
             {block:IfYouTubeURL}
-                <a class="desktopLink" href="{text:YouTube URL}" target="_blank"><i class="fab fa-youtube"></i>
+                <a class="desktopLink" href="{text:YouTube URL}" target="_blank">
+                    <i class="fab fa-youtube"></i>
                     <p class="desktopTitle">YouTube</p>
                 </a>
             {/block:IfYouTubeURL}
+            
             {block:HasPages}
                 {block:Pages} 
                     <a class="desktopLink" href="{URL}" target="_blank">
@@ -847,9 +880,13 @@
                 {/block:Pages}
             {/block:HasPages}        
         </div>
+        <!-- End DesktopLinks-->
        
         <ul class="posts container">
-            <!-- Removed static ABOUT box -->
+            <!-- Removed static ABOUT box BECAUSE:
+                    It blended in too much with the blog posts, and did not stay stationary.
+                I added a much more aesthetically pleasing sidebar with a background. Sidebar is STATIC. 
+            -->
             <!-- {block:IndexPage}
             <li class="post about">     
                 <div class="postControls">
@@ -868,20 +905,26 @@
                 </div>
             </li>
             {/block:IndexPage} -->
+            
             {block:Posts}
-                <li class="post main {block:IndexPage}draggable{/block:IndexPage} {block:PermalinkPage}full{/block:PermalinkPage}">         
+                <li class="post main {block:IndexPage}draggable{/block:IndexPage} {block:PermalinkPage}full{/block:PermalinkPage}">
+                    <!-- Post Top Bar: Date and "Controls" -->
+                    <!-- FIND LATER: Change Controls -->
                     <div class="postControls">
                         <div class="date">
                             {DayOfWeek}, {ShortMonth} {DayOfMonth}{DayOfMonthSuffix} @ {12Hour}:{Minutes}{CapitalAmPm} ヾ(๑ˊᵕˋ๑)◞♡
                         </div>
+                        
                         {block:IndexPage}
                         <a class="fullControl" href="{Permalink}">
                             <i class="fas fa-arrows-alt"></i>
                         </a>
                         {/block:IndexPage}
+                        
                         {block:IndexPage}
                             <a class="closeControl closeButton" href="#">
                         {/block:IndexPage}
+                        
                         {block:PermalinkPage}
                             <a class="closeControl" href="{BlogURL}">
                                 <i class="fas fa-times"></i>
@@ -891,174 +934,177 @@
                     </div>
                     
                     <div class="postInner">
-                    <div class="loaderTwo"><i class="fa-solid fa-cookie-bite fa-spin"></i></div>
-                    <div class="postInnerTwo">
-                    {block:Text}
-                    <div class="text">
-                        {block:Title}
-                        <h3 class="title">
-                            <a href="{Permalink}">{Title}</a>
-                        </h3>
-                            {/block:Title}
-                        {block:Body}
-                        <div class="postContent">
-                            {Body}
+                        <div class="loaderTwo">
+                            <i class="fa-solid fa-cookie-bite fa-spin"></i>
                         </div>
-                        {/block:Body}
-                    </div>  
-                    {/block:Text}
-                    
-                    {block:Photo}
-                    <div class="photo">
-                        {block:IndexPage}
-                            <a href="{Permalink}">
-                        {/block:IndexPage}
-                        {block:PermalinkPage}
-                            {LinkOpenTag}
-                        {/block:PermalinkPage}
-                        <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" width="100%"/> 
-                        {block:IndexPage}
-                            </a>
-                        {/block:IndexPage}
-                        {block:PermalinkPage}
-                            {LinkCloseTag}
-                        {/block:PermalinkPage}
-                    </div> 
-                    {/block:Photo}
-                
-                     {block:Panorama}
-                        <div class="panorama">
-                            {LinkOpenTag}
-                                <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
-                            {LinkCloseTag}
-                        </div> 
-                    {/block:Panorama}
-                
-                    {block:Photoset}
-                        <div class="photosetContainer">
-                            {block:Photos}
+                        <div class="postInnerTwo">
+                            {block:Text}
+                            <div class="text">
+                                {block:Title}
+                                <h3 class="title">
+                                    <a href="{Permalink}">{Title}</a>
+                                </h3>
+                                    {/block:Title}
+                                {block:Body}
+                                <div class="postContent">
+                                    {Body}
+                                </div>
+                                {/block:Body}
+                            </div>  
+                            {/block:Text}
+                            
+                            {block:Photo}
+                            <div class="photo">
                                 {block:IndexPage}
                                     <a href="{Permalink}">
                                 {/block:IndexPage}
                                 {block:PermalinkPage}
                                     {LinkOpenTag}
                                 {/block:PermalinkPage}
-                                <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" width="100%"/>
+                                <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" width="100%"/> 
                                 {block:IndexPage}
                                     </a>
                                 {/block:IndexPage}
                                 {block:PermalinkPage}
                                     {LinkCloseTag}
                                 {/block:PermalinkPage}
-                          {/block:Photos}
-                        </div>
-                    {/block:Photoset}
-                
-                    {block:Link}
-                        <div class="link">
-                            {block:Thumbnail}
-                                {block:IndexPage}
-                                    <a href="{Permalink}">
-                                {/block:IndexPage}
-                                {block:PermalinkPage}
-                                    <a href="{URL}" class="link" {Target}>
-                                {/block:PermalinkPage}
-                                <img class="linkThumb" src="{Thumbnail-HighRes}" alt="{PhotoAlt}">
-                                    </a>
-                            {/block:Thumbnail}
-                            
-                            {block:Host}
-                                <a class="linkHost" href="https://{host}">{Host}</a>
-                            {/block:Host}
-                            <a class="linkTitle" href="{URL}" class="link" {Target}>{Name}</a>
-                        </div>  
-                
-                {block:PermalinkPage}
-                    {block:Description}
-                        <div class="postContent">
-                        {Description}
-                        </div>
-                    {/block:Description}
-                {/block:PermalinkPage}
-                
-                {block:IndexPage}
-                    {block:Description}
-                        <div class="postContent">
-                            {Description}
-                        </div>
-                    {/block:Description}
-                {/block:IndexPage}
-                
-            {/block:Link}
-                 
-            {block:Chat}
-            <div class="chat">
-                {block:Title}
-                    <h3>{Title}</h3>
-                {/block:Title}
-                <ul id="chat">
-                    {block:Lines}
-                        <li class="{Alt} user_{UserNumber}">
-                            {block:Label}
-                            <span class="label">{Label}</span>
-                            {/block:Label}{Line}
-                        </li>
-                    {/block:Lines}
-                </ul>
-            </div>
-            {/block:Chat}
-                
-            {block:Audio} 
-            <div class="audio">
-                {block:AudioEmbed} 
-                    {AudioEmbed}
-                {/block:AudioEmbed}
-            </div>  
-            {/block:Audio}
-                
-            {block:Answer}
-            <div class="question">
-                <div class="questionContainer"> 
-                    <span class="askerContainer">{Asker} ASKED:</span> {Question}
-                </div>
-                {block:Answerer}
-                <div class="answerContainer">
-                    <span class="answererContainer">{Answerer} ANSWERED:</span > {Answer}
-                </div>
-                {/block:Answerer}
-                <div class="replies">{Replies}</div> 
-            </div>
-            {/block:Answer}
-                
-            {block:Video}
-            <div class="video clearfix">
-                <div class="videoWrapper">
-                {VideoEmbed-700}
-                </div>
-            </div>
-            {/block:Video}
-             
-            {block:Quote}
-            <div class="quote">
-                <div class="postContent">
-                    "{Quote}" {block:Source}— {Source}{/block:Source}
-                </div>
-            </div>  
-            {/block:Quote}
-                
-            {block:PermalinkPage}
-                {block:Caption}
-                    <div class="postContent">
-                        {Caption}
+                            </div> 
+                            {/block:Photo}
+                        
+                            {block:Panorama}
+                                <div class="panorama">
+                                    {LinkOpenTag}
+                                        <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+                                    {LinkCloseTag}
+                                </div> 
+                            {/block:Panorama}
+                        
+                            {block:Photoset}
+                                <div class="photosetContainer">
+                                    {block:Photos}
+                                        {block:IndexPage}
+                                            <a href="{Permalink}">
+                                        {/block:IndexPage}
+                                        {block:PermalinkPage}
+                                            {LinkOpenTag}
+                                        {/block:PermalinkPage}
+                                        <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" width="100%"/>
+                                        {block:IndexPage}
+                                            </a>
+                                        {/block:IndexPage}
+                                        {block:PermalinkPage}
+                                            {LinkCloseTag}
+                                        {/block:PermalinkPage}
+                                {/block:Photos}
+                                </div>
+                            {/block:Photoset}
+                        
+                            {block:Link}
+                                <div class="link">
+                                    {block:Thumbnail}
+                                        {block:IndexPage}
+                                            <a href="{Permalink}">
+                                        {/block:IndexPage}
+                                        {block:PermalinkPage}
+                                            <a href="{URL}" class="link" {Target}>
+                                        {/block:PermalinkPage}
+                                        <img class="linkThumb" src="{Thumbnail-HighRes}" alt="{PhotoAlt}">
+                                            </a>
+                                    {/block:Thumbnail}
+                                    
+                                    {block:Host}
+                                        <a class="linkHost" href="https://{host}">{Host}</a>
+                                    {/block:Host}
+                                    <a class="linkTitle" href="{URL}" class="link" {Target}>{Name}</a>
+                                </div>  
+                        
+                        {block:PermalinkPage}
+                            {block:Description}
+                                <div class="postContent">
+                                {Description}
+                                </div>
+                            {/block:Description}
+                        {/block:PermalinkPage}
+                        
+                        {block:IndexPage}
+                            {block:Description}
+                                <div class="postContent">
+                                    {Description}
+                                </div>
+                            {/block:Description}
+                        {/block:IndexPage}
+                        
+                    {/block:Link}
+                        
+                    {block:Chat}
+                    <div class="chat">
+                        {block:Title}
+                            <h3>{Title}</h3>
+                        {/block:Title}
+                        <ul id="chat">
+                            {block:Lines}
+                                <li class="{Alt} user_{UserNumber}">
+                                    {block:Label}
+                                    <span class="label">{Label}</span>
+                                    {/block:Label}{Line}
+                                </li>
+                            {/block:Lines}
+                        </ul>
                     </div>
-                {/block:Caption}
-            {/block:PermalinkPage}
+                    {/block:Chat}
+                        
+                    {block:Audio} 
+                    <div class="audio">
+                        {block:AudioEmbed} 
+                            {AudioEmbed}
+                        {/block:AudioEmbed}
+                    </div>  
+                    {/block:Audio}
+                        
+                    {block:Answer}
+                    <div class="question">
+                        <div class="questionContainer"> 
+                            <span class="askerContainer">{Asker} ASKED:</span> {Question}
+                        </div>
+                        {block:Answerer}
+                        <div class="answerContainer">
+                            <span class="answererContainer">{Answerer} ANSWERED:</span > {Answer}
+                        </div>
+                        {/block:Answerer}
+                        <div class="replies">{Replies}</div> 
+                    </div>
+                    {/block:Answer}
+                        
+                    {block:Video}
+                    <div class="video clearfix">
+                        <div class="videoWrapper">
+                        {VideoEmbed-700}
+                        </div>
+                    </div>
+                    {/block:Video}
+                    
+                    {block:Quote}
+                    <div class="quote">
+                        <div class="postContent">
+                            "{Quote}" {block:Source}— {Source}{/block:Source}
+                        </div>
+                    </div>  
+                    {/block:Quote}
+                        
+                    {block:PermalinkPage}
+                        {block:Caption}
+                            <div class="postContent">
+                                {Caption}
+                            </div>
+                        {/block:Caption}
+                    {/block:PermalinkPage}
+                    </div>
                 </div>
-                </div>
+                
                 {block:IndexPage}
                     {block:Caption}
                         <div class="postContent">
-                        {Caption}
+                            {Caption}
                         </div>
                         {/block:Caption}
                     {block:HasTags} 
@@ -1073,17 +1119,12 @@
                         {/block:IfTagsOnHomepage}
                     {/block:HasTags}
                 
-                
-                   
                     {block:NoteCount}
-                    <div class="meta">
-                    <div class="notecount"> 
-                    <a href="{Permalink}">{NoteCountWithLabel}</a>                            </div>
-                     </div>
+                        <div class="meta">
+                            <div class="notecount"> 
+                                <a href="{Permalink}">{NoteCountWithLabel}</a>                             </div>
+                        </div>
                     {/block:NoteCount}
-                    
-                   
-               
                 {/block:IndexPage}
                 
             </li>
@@ -1093,43 +1134,47 @@
                 <li class="post notes">
                     <div class="postControls">
                         <div class="date">
-                        
                            <a href="#">{NoteCountWithLabel}</a>
                         </div>
-                        <a class="closeControl" href="{BlogURL}"><i class="fas fa-times"></i></a>
+                        <a class="closeControl" href="{BlogURL}">
+                            <i class="fas fa-times"></i>
+                        </a>
                     </div>
-                     <div class="postInner">
-                    <div id="note-page">
-                        <div class="note-container">
-                        {PostNotes}
+                    <div class="postInner">
+                        <div id="note-page">
+                            <div class="note-container">
+                                {PostNotes}
+                            </div>
                         </div>
-                    </div>
                     </div>
                 </li>
             {/block:PostNotes} 
-            {/block:Posts}
-        </ul> 
+        {/block:Posts}
+    </ul> 
       
-        {block:Pagination}
+    {block:Pagination}
         <div class="pagination {block:IfInfiniteScroll}infinite{/block:IfInfiniteScroll}">
             {block:PreviousPage}
-            <a class="desktopLink" href="{PreviousPage}" id="prev"><i class="fa-regular fa-square-caret-left"></i><p class="desktopTitle">Prev Posts</p></a>
+                <a class="desktopLink" href="{PreviousPage}" id="prev">
+                    <i class="fa-regular fa-square-caret-left"></i>
+                    <p class="desktopTitle">Prev Posts</p>
+                </a>
             {/block:PreviousPage} 
             
             {block:NextPage}
-            <a class="desktopLink" href="{NextPage}" id="next"><i class="fa-regular fa-square-caret-right"></i><p class="desktopTitle">Next Posts</p></a>
+                <a class="desktopLink" href="{NextPage}" id="next">
+                    <i class="fa-regular fa-square-caret-right"></i>
+                    <p class="desktopTitle">Next Posts</p>
+                </a>
             {/block:NextPage}
        
         </div>        
-        {/block:Pagination}
-
+    {/block:Pagination}
 </div>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-infinitescroll/2.0b2.120519/jquery.infinitescroll.min.js"></script>
 
-
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-infinitescroll/2.0b2.120519/jquery.infinitescroll.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.2.0/imagesloaded.pkgd.js"></script>
-
-        <script src="https://static.tumblr.com/6hsqxdt/QBym35odk/jquery.masonry.js"></script>
+<script src="https://static.tumblr.com/6hsqxdt/QBym35odk/jquery.masonry.js"></script>
 
 
         {block:IndexPage}
