@@ -794,15 +794,53 @@
             
             <nav id="nav">
                 <ul>
-                    <li><a class="navLink" href="{BlogURL}">HOME</a></li>
-                    {block:IfAskLink}<li><a class="navLink ask" href="/ask">Ask</a></li>{/block:IfAskLink}
-                    {block:IfArchiveLink}<li><a class="navLink archive" href="/archive">Archive</a></li>{/block:IfArchiveLink}
-                    {block:IfCustomLink1URL}<li><a href="{text:Custom Link 1 URL}"}>{text:Custom Link 1 Title}</a></li>{/block:IfCustomLink1URL}
-                    {block:IfCustomLink2URL}<li><a href="{text:Custom Link 2 URL}">{text:Custom Link 2 Title}</a></li>{/block:IfCustomLink2URL}
-                    {block:IfCustomLink3URL}<li><a href="{text:Custom Link 3 URL}">{text:Custom Link 3 Title}</a></li>{/block:IfCustomLink3URL}
-                    
+                    <li>
+                        <a class="navLink" href="{BlogURL}">HOME</a>
+                    </li>
+
+                    {block:IfAskLink}
+                        <li>
+                            <a class="navLink ask" href="/ask">
+                                Ask
+                            </a>
+                        </li>
+                    {/block:IfAskLink}
+
+                    {block:IfArchiveLink}
+                        <li>
+                            <a class="navLink archive" href="/archive">
+                                Archive
+                            </a>
+                        </li>
+                    {/block:IfArchiveLink}
+
+                    {block:IfCustomLink1URL}
+                        <li>
+                            <a href="{text:Custom Link 1 URL}"}>
+                                {text:Custom Link 1 Title}
+                            </a>
+                        </li>
+                    {/block:IfCustomLink1URL}
+
+                    {block:IfCustomLink2URL}
+                        <li>
+                            <a href="{text:Custom Link 2 URL}">
+                                {text:Custom Link 2 Title}
+                            </a>
+                        </li>
+                    {/block:IfCustomLink2URL}
+
+                    {block:IfCustomLink3URL}
+                        <li>
+                            <a href="{text:Custom Link 3 URL}">
+                                {text:Custom Link 3 Title}
+                            </a>
+                        </li>
+                    {/block:IfCustomLink3URL}   
                 </ul>
             </nav>
+            <!-- END NAV -->
+
         </div>
         <!-- End Wrapper -->
 
@@ -939,40 +977,46 @@
                         <div class="loaderTwo">
                             <i class="fa-solid fa-cookie-bite fa-spin"></i>
                         </div>
+
                         <div class="postInnerTwo">
+                            <!-- TEXT POST -->
                             {block:Text}
-                            <div class="text">
-                                {block:Title}
-                                <h3 class="title">
-                                    <a href="{Permalink}">{Title}</a>
-                                </h3>
+                                <div class="text">
+                                    <!-- TEXT POST TITLE -->
+                                    {block:Title}
+                                        <h3 class="title">
+                                            <a href="{Permalink}">{Title}</a>
+                                        </h3>
                                     {/block:Title}
-                                {block:Body}
-                                <div class="postContent">
-                                    {Body}
-                                </div>
-                                {/block:Body}
-                            </div>  
+                                    <!-- TEXT POST BODY -->
+                                    {block:Body}
+                                        <div class="postContent">
+                                            {Body}
+                                        </div>
+                                    {/block:Body}
+                                </div>  
                             {/block:Text}
                             
+                            <!-- PHOTO POST -->
                             {block:Photo}
-                            <div class="photo">
-                                {block:IndexPage}
-                                    <a href="{Permalink}">
-                                {/block:IndexPage}
-                                {block:PermalinkPage}
-                                    {LinkOpenTag}
-                                {/block:PermalinkPage}
-                                <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" width="100%"/> 
-                                {block:IndexPage}
-                                    </a>
-                                {/block:IndexPage}
-                                {block:PermalinkPage}
-                                    {LinkCloseTag}
-                                {/block:PermalinkPage}
-                            </div> 
+                                <div class="photo">
+                                    {block:IndexPage}
+                                        <a href="{Permalink}">
+                                    {/block:IndexPage}
+                                    {block:PermalinkPage}
+                                        {LinkOpenTag}
+                                    {/block:PermalinkPage}
+                                    <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" width="100%"/> 
+                                    {block:IndexPage}
+                                        </a>
+                                    {/block:IndexPage}
+                                    {block:PermalinkPage}
+                                        {LinkCloseTag}
+                                    {/block:PermalinkPage}
+                                </div> 
                             {/block:Photo}
-                        
+
+                            <!-- PANORAMA POST -->
                             {block:Panorama}
                                 <div class="panorama">
                                     {LinkOpenTag}
@@ -980,7 +1024,8 @@
                                     {LinkCloseTag}
                                 </div> 
                             {/block:Panorama}
-                        
+                            
+                            <!-- PHOTOSET POST -->
                             {block:Photoset}
                                 <div class="photosetContainer">
                                     {block:Photos}
@@ -997,10 +1042,11 @@
                                         {block:PermalinkPage}
                                             {LinkCloseTag}
                                         {/block:PermalinkPage}
-                                {/block:Photos}
+                                    {/block:Photos}
                                 </div>
                             {/block:Photoset}
-                        
+
+                            <!-- LINK POST -->
                             {block:Link}
                                 <div class="link">
                                     {block:Thumbnail}
@@ -1013,222 +1059,245 @@
                                         <img class="linkThumb" src="{Thumbnail-HighRes}" alt="{PhotoAlt}">
                                             </a>
                                     {/block:Thumbnail}
-                                    
                                     {block:Host}
                                         <a class="linkHost" href="https://{host}">{Host}</a>
                                     {/block:Host}
                                     <a class="linkTitle" href="{URL}" class="link" {Target}>{Name}</a>
+                                </div>
+
+                                {block:PermalinkPage}
+                                    {block:Description}
+                                        <div class="postContent">
+                                            {Description}
+                                        </div>
+                                    {/block:Description}
+                                {/block:PermalinkPage}
+                                
+                                {block:IndexPage}
+                                    {block:Description}
+                                        <div class="postContent">
+                                            {Description}
+                                        </div>
+                                    {/block:Description}
+                                {/block:IndexPage}
+                            {/block:Link}
+                            
+                            <!-- CHAT POST -->
+                            {block:Chat}
+                                <div class="chat">
+                                    {block:Title}
+                                        <h3>{Title}</h3>
+                                    {/block:Title}
+                                    <ul id="chat">
+                                        {block:Lines}
+                                            <li class="{Alt} user_{UserNumber}">
+                                                {block:Label}
+                                                    <span class="label">{Label}</span>
+                                                {/block:Label}{Line}
+                                            </li>
+                                        {/block:Lines}
+                                    </ul>
+                                </div>
+                            {/block:Chat}
+                        
+                            <!-- AUDIO POST -->
+                            {block:Audio} 
+                                <div class="audio">
+                                    {block:AudioEmbed} 
+                                        {AudioEmbed}
+                                    {/block:AudioEmbed}
                                 </div>  
+                            {/block:Audio}
                         
-                        {block:PermalinkPage}
-                            {block:Description}
-                                <div class="postContent">
-                                {Description}
+                            <!-- Q&A POST -->
+                            {block:Answer}
+                                <div class="question">
+                                    <!-- QUESTION -->
+                                    <div class="questionContainer"> 
+                                        <span class="askerContainer">
+                                            {Asker} ASKED:
+                                        </span> 
+                                        {Question}
+                                    </div>
+                                    <!-- ANSWER -->
+                                    {block:Answerer}
+                                        <div class="answerContainer">
+                                            <span class="answererContainer">
+                                                {Answerer} ANSWERED:
+                                            </span >
+                                            {Answer}
+                                        </div>
+                                    {/block:Answerer}
+                                    <!-- REPLIES -->
+                                    <div class="replies">
+                                        {Replies}
+                                    </div> 
                                 </div>
-                            {/block:Description}
-                        {/block:PermalinkPage}
+                            {/block:Answer}
                         
-                        {block:IndexPage}
-                            {block:Description}
-                                <div class="postContent">
-                                    {Description}
+                            <!-- VIDEO POST -->
+                            {block:Video}
+                                <div class="video clearfix">
+                                    <div class="videoWrapper">
+                                        {VideoEmbed-700}
+                                    </div>
                                 </div>
-                            {/block:Description}
-                        {/block:IndexPage}
-                        
-                    {/block:Link}
-                        
-                    {block:Chat}
-                    <div class="chat">
-                        {block:Title}
-                            <h3>{Title}</h3>
-                        {/block:Title}
-                        <ul id="chat">
-                            {block:Lines}
-                                <li class="{Alt} user_{UserNumber}">
-                                    {block:Label}
-                                    <span class="label">{Label}</span>
-                                    {/block:Label}{Line}
-                                </li>
-                            {/block:Lines}
-                        </ul>
-                    </div>
-                    {/block:Chat}
-                        
-                    {block:Audio} 
-                    <div class="audio">
-                        {block:AudioEmbed} 
-                            {AudioEmbed}
-                        {/block:AudioEmbed}
-                    </div>  
-                    {/block:Audio}
-                        
-                    {block:Answer}
-                    <div class="question">
-                        <div class="questionContainer"> 
-                            <span class="askerContainer">{Asker} ASKED:</span> {Question}
-                        </div>
-                        {block:Answerer}
-                        <div class="answerContainer">
-                            <span class="answererContainer">{Answerer} ANSWERED:</span > {Answer}
-                        </div>
-                        {/block:Answerer}
-                        <div class="replies">{Replies}</div> 
-                    </div>
-                    {/block:Answer}
-                        
-                    {block:Video}
-                    <div class="video clearfix">
-                        <div class="videoWrapper">
-                        {VideoEmbed-700}
-                        </div>
-                    </div>
-                    {/block:Video}
+                            {/block:Video}
                     
-                    {block:Quote}
-                    <div class="quote">
-                        <div class="postContent">
-                            "{Quote}" {block:Source}— {Source}{/block:Source}
-                        </div>
-                    </div>  
-                    {/block:Quote}
+                            <!-- QUOTE POST -->
+                            {block:Quote}
+                                <div class="quote">
+                                    <div class="postContent">
+                                        "{Quote}" {block:Source}— {Source}{/block:Source}
+                                    </div>
+                                </div>  
+                            {/block:Quote}
                         
-                    {block:PermalinkPage}
+                            <!-- PERMALINK -->
+                            {block:PermalinkPage}
+                                {block:Caption}
+                                    <div class="postContent">
+                                        {Caption}
+                                    </div>
+                                {/block:Caption}
+                            {/block:PermalinkPage}
+                        </div>
+                        <!-- END INNER POST TWO-->
+                    </div>
+                    <!-- END INNER POST -->
+                
+                    {block:IndexPage}
                         {block:Caption}
                             <div class="postContent">
                                 {Caption}
                             </div>
                         {/block:Caption}
-                    {/block:PermalinkPage}
-                    </div>
-                </div>
-                
-                {block:IndexPage}
-                    {block:Caption}
-                        <div class="postContent">
-                            {Caption}
-                        </div>
-                        {/block:Caption}
-                    {block:HasTags} 
-                        {block:IfTagsOnHomepage}
-                        <div class="tagContainer">
-                            <ul class="tags">
-                                {block:Tags}
-                                    <a href="{TagURL}">{Tag}</a> ♥ 
-                                {/block:Tags}
-                            </ul>
-                        </div>
-                        {/block:IfTagsOnHomepage}
-                    {/block:HasTags}
-                
-                    {block:NoteCount}
-                        <div class="meta">
-                            <div class="notecount"> 
-                                <a href="{Permalink}">{NoteCountWithLabel}</a>                             </div>
-                        </div>
-                    {/block:NoteCount}
-                {/block:IndexPage}
-                
-            </li>
+                        
+                        {block:HasTags} 
+                            {block:IfTagsOnHomepage}
+                                <div class="tagContainer">
+                                    <ul class="tags">
+                                        {block:Tags}
+                                            <a href="{TagURL}">{Tag}</a> ♥ 
+                                        {/block:Tags}
+                                    </ul>
+                                </div>
+                            {/block:IfTagsOnHomepage}
+                        {/block:HasTags}
+                    
+                        {block:NoteCount}
+                            <div class="meta">
+                                <div class="notecount"> 
+                                    <a href="{Permalink}">{NoteCountWithLabel}</a>
+                                </div>
+                            </div>
+                        {/block:NoteCount}
+                    {/block:IndexPage}
+                </li>
+                <!-- END POST MAIN -->
            
             
-            {block:PostNotes} 
-                <li class="post notes">
-                    <div class="postControls">
-                        <div class="date">
-                           <a href="#">{NoteCountWithLabel}</a>
+                {block:PostNotes} 
+                    <li class="post notes">
+                        <div class="postControls">
+                            <div class="date">
+                                <a href="#">{NoteCountWithLabel}</a>
+                            </div>
+                            <a class="closeControl" href="{BlogURL}">
+                                <i class="fas fa-times"></i>
+                            </a>
                         </div>
-                        <a class="closeControl" href="{BlogURL}">
-                            <i class="fas fa-times"></i>
-                        </a>
-                    </div>
-                    <div class="postInner">
-                        <div id="note-page">
-                            <div class="note-container">
-                                {PostNotes}
+                        <div class="postInner">
+                            <div id="note-page">
+                                <div class="note-container">
+                                    {PostNotes}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </li>
-            {/block:PostNotes} 
-        {/block:Posts}
-    </ul> 
-      
-    {block:Pagination}
-        <div class="pagination {block:IfInfiniteScroll}infinite{/block:IfInfiniteScroll}">
-            {block:PreviousPage}
-                <a class="desktopLink" href="{PreviousPage}" id="prev">
-                    <i class="fa-regular fa-square-caret-left"></i>
-                    <p class="desktopTitle">Prev Posts</p>
-                </a>
-            {/block:PreviousPage} 
+                    </li>
+                {/block:PostNotes} 
             
-            {block:NextPage}
-                <a class="desktopLink" href="{NextPage}" id="next">
-                    <i class="fa-regular fa-square-caret-right"></i>
-                    <p class="desktopTitle">Next Posts</p>
-                </a>
-            {/block:NextPage}
-       
-        </div>        
-    {/block:Pagination}
-</div>
+            {/block:Posts}
+            <!-- END POSTS BLOCK -->
+        </ul> 
+        <!-- END POSTS CONTAINER-->
+      
+        {block:Pagination}
+            <div class="pagination {block:IfInfiniteScroll}infinite{/block:IfInfiniteScroll}">
+                {block:PreviousPage}
+                    <a class="desktopLink" href="{PreviousPage}" id="prev">
+                        <i class="fa-regular fa-square-caret-left"></i>
+                        <p class="desktopTitle">Prev Posts</p>
+                    </a>
+                {/block:PreviousPage} 
+                
+                {block:NextPage}
+                    <a class="desktopLink" href="{NextPage}" id="next">
+                        <i class="fa-regular fa-square-caret-right"></i>
+                        <p class="desktopTitle">Next Posts</p>
+                    </a>
+                {/block:NextPage}
+        
+            </div>        
+        {/block:Pagination}
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-infinitescroll/2.0b2.120519/jquery.infinitescroll.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.2.0/imagesloaded.pkgd.js"></script>
-<script src="https://static.tumblr.com/6hsqxdt/QBym35odk/jquery.masonry.js"></script>
-
+        <!-- SCRIPTS FOR INDEX -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-infinitescroll/2.0b2.120519/jquery.infinitescroll.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.2.0/imagesloaded.pkgd.js"></script>
+        <script src="https://static.tumblr.com/6hsqxdt/QBym35odk/jquery.masonry.js"></script>
 
         {block:IndexPage}
-        <script type="text/javascript">
-			(function() {
-			// Main content container
-			var $container = $('.container');
-			// Masonry + ImagesLoaded
-			$container.imagesLoaded(function(){
-				$container.masonry({
-					itemSelector: 'li.post',
-					});
-				});
-			$('#loading').delay(500).fadeOut(300);
-
-			// Infinite Scroll
-			$container.infinitescroll({
-				navSelector  : ".pagination.infinite",
-				nextSelector : "a#next",
-				itemSelector : ".post.main",
-				// finished message
-				loading: {
-		    		speed: 0,
-					msgText: '( ⸝⸝•ᴗ•⸝⸝ )੭⁾⁾',
-					finishedMsg: '',
-					}
-				},
-			// Trigger Masonry as a callback
-			function( newElements ) {
-				// hide new items while they are loading
-				var $newElems = $( newElements ).css({ opacity: '0' });
-				$newElems.find('.postInnerTwo').css({ opacity: '0'});
-				$newElems.find('.loaderTwo').css({ 'display': 'flex' });
-				// ensure that images load before adding to masonry layout
-				$newElems.imagesLoaded(function(){
-				    $newElems.each(function (i) {
-				        var $item = $(this); 
-                        setTimeout(function() { 
-                            $item.animate({ opacity: 1 }, 0);
-                            $item.find('.postInnerTwo').delay(500).animate({ opacity: 1 });          
-                            $item.find('.loaderTwo').delay(500).fadeOut();
-                        }, 500*i);
+            <script type="text/javascript">
+                (function() {
+                    // Main content container
+                    var $container = $('.container');
+                    // Masonry + ImagesLoaded
+                    $container.imagesLoaded(function(){
+                        $container.masonry({
+                            itemSelector: 'li.post',
+                        });
                     });
-					
-					$container.masonry( 'appended', $newElems, true );
-					});
-				});
-			})();
-  		</script>
-  		
+                    $('#loading').delay(500).fadeOut(300);
+
+                    // Infinite Scroll
+                    $container.infinitescroll({
+                        navSelector  : ".pagination.infinite",
+                        nextSelector : "a#next",
+                        itemSelector : ".post.main",
+                        // finished message
+                        loading: {
+                            speed: 0,
+                            msgText: '( ⸝⸝•ᴗ•⸝⸝ )੭⁾⁾',
+                            finishedMsg: '',
+                        }
+                    },
+                    // Trigger Masonry as a callback
+                    function( newElements ) {
+                        // hide new items while they are loading
+                        var $newElems = $( newElements ).css({ opacity: '0' });
+                        $newElems.find('.postInnerTwo').css({ opacity: '0'});
+                        $newElems.find('.loaderTwo').css({ 'display': 'flex' });
+                        // ensure that images load before adding to masonry layout
+                        $newElems.imagesLoaded(function(){
+                            $newElems.each(function (i) {
+                                var $item = $(this); 
+                                setTimeout(function() { 
+                                    $item.animate({ opacity: 1 }, 0);
+                                    $item.find('.postInnerTwo').delay(500).animate({ opacity: 1 });          
+                                    $item.find('.loaderTwo').delay(500).fadeOut();
+                                }, 500*i);
+                            });
+                            
+                            $container.masonry( 'appended', $newElems, true );
+                        });
+                    });
+                })();
+            </script>
+            <!-- END JAVASCRIPT -->
         {/block:IndexPage}
-    
-      
+        <!-- END INDEX PAGE -->
+
     </body>
+    <!-- END BODY -->
 </html>
+<!-- END DOC -->
