@@ -249,7 +249,7 @@
             }
             ul.posts li.post.full, ul.posts li.post.notes {
                 flex-grow: 1;
-                max-height: calc(100vh - 120px) !important;
+                max-height: calc(100vh - 40px) !important;
                 z-index: 5000;
                 display: flex;
                 margin: 0 auto;
@@ -281,7 +281,7 @@
             {block:PermalinkPage}
             .postInner {
                 overflow-y: scroll !important;
-                height: 100%;
+                height: 600px;
                 overflow: hidden;
             }
             {/block:PermalinkPage}
@@ -297,9 +297,9 @@
             /* Controls Title & Detailed Notes
             I'm not a fan of this setup. See static sidebar! */
             .date a {
-                font-size: 40px;
+                font-size: 25px;
                 color: {color:Secondary};
-                text-decoration: underline overline;
+               /* text-decoration: underline overline;*/
                 padding: 5;
                 border: 5;
             }
@@ -451,7 +451,7 @@
                 text-transform: full-width;
             }
             ul.tags li a:hover, .perma a:hover, .notecount a:hover {
-                text-decoration-line: underline overline;
+                /*text-decoration-line: underline overline;*/
                 background-color: {color:Tertiary};
                 color: {color:Secondary};
             }
@@ -512,6 +512,7 @@
                 padding: 0px 1px;
                 border: 0;
             }
+
             /* Text Posts */
             h1, h2 {
                 font-size: 12px;
@@ -697,10 +698,11 @@
                 text-decoration: blink;
             }
             .note.more_notes_link_container{
-                    margin-top: 0px;
-                    text-align: left !important;
-                    font-size: 12px !important;
-                    padding-bottom: 0px;
+                margin-top: 0px;
+                text-align: left !important;
+                font-size: 12px !important;
+                padding-bottom: 0px;
+                overflow-y: scroll !important;
             }
             .note.more_notes_link_container a, a.more_notes_link, .notes_loading{
                 text-decoration: none;
@@ -721,12 +723,12 @@
                 border-bottom:0;
             }
             .clearfix:after {
-                     visibility: hidden;
-                     display: block;
-                     font-size: 0;
-                     content: " ";
-                     clear: both;
-                     height: 0;
+                visibility: hidden;
+                display: block;
+                font-size: 0;
+                content: " ";
+                clear: both;
+                height: 0;
             }
             .clearfix { display: inline-block; }
             /* start commented backslash hack \*/
@@ -953,6 +955,12 @@
                             {DayOfWeek}, {ShortMonth} {DayOfMonth}{DayOfMonthSuffix} @ {12Hour}:{Minutes}{CapitalAmPm} ヾ(๑ˊᵕˋ๑)◞♡
                         </div>
                         
+                        {block:IndexPage}
+                            <a class="like-and-reblog"> 
+                                {ReblogButton} {LikeButton}
+                            </a>
+                        {/block:IndexPage}
+
                         {block:IndexPage}
                         <a class="fullControl" href="{Permalink}">
                             <i class="fas fa-arrows-alt"></i>
@@ -1198,7 +1206,11 @@
                 </li>
                 <!-- END POST MAIN -->
            
-            
+                <!-- <div class="notes-wrapper">
+                    {block:PostNotes}
+                        {PostNotes-64}
+                    {/block:PostNotes}
+                </div> -->
                 {block:PostNotes} 
                     <li class="post notes">
                         <div class="postControls">
