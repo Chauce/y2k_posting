@@ -83,7 +83,8 @@
         <style type="text/css">
             html, body {
                 margin:0;
-                padding:0;
+                padding-top:35px;
+                padding-bottom:35px;
                 background-color: {color:Primary};
                 background-image: url({image:Background});
                 background-repeat: repeat;
@@ -186,7 +187,7 @@
             .wrapper {
                 width: 100%;
                 overflow: hidden;
-                margin: 0px 0px 20px 0px;
+                margin: 0px 0px 0px 0px;
             }
             ul.posts {
                 list-style: none;
@@ -205,6 +206,10 @@
                 {/block:PermalinkPage}
             }
             @media screen and (max-width:1490px) {
+                html, body {
+                    padding:0;
+                    padding-left:175px;
+                }
                 ul.posts{
                     width: 720px;
                 }
@@ -954,23 +959,11 @@
                         <div class="date">
                             {DayOfWeek}, {ShortMonth} {DayOfMonth}{DayOfMonthSuffix} @ {12Hour}:{Minutes}{CapitalAmPm} ヾ(๑ˊᵕˋ๑)◞♡
                         </div>
-                        
-                        {block:IndexPage}
-                            <a class="like-and-reblog"> 
-                                {ReblogButton} {LikeButton}
-                            </a>
-                        {/block:IndexPage}
 
                         {block:IndexPage}
                         <a class="fullControl" href="{Permalink}">
-                            <i class="fas fa-arrows-alt"></i>
+                            <i class="fa-solid fa-expand"></i>
                         </a>
-                        {/block:IndexPage}
-                        
-                        {block:IndexPage}
-                            <a class="closeControl closeButton" href="#">
-                                <i class="fas fa-times"></i>
-                            </a>
                         {/block:IndexPage}
                         
                         {block:PermalinkPage}
@@ -1199,6 +1192,10 @@
                                     <a href="{Permalink}">
                                         {NoteCountWithLabel}
                                     </a>
+                                    ♡
+                                    <a href='{ReblogURL}'>Reblog</a>
+                                    ♡
+                                    <a href='{LikeURL}'>Like</a>
                                 </div>
                             </div>
                         {/block:NoteCount}
@@ -1217,8 +1214,8 @@
                             <div class="date">
                                 <a href="#">{NoteCountWithLabel}</a>
                             </div>
-                            <a class="closeControl" href="{BlogURL}">
-                                <i class="fas fa-times"></i>
+                            <a class="like-and-reblog"> 
+                                {ReblogButton} {LikeButton}
                             </a>
                         </div>
                         <div class="postInner">
